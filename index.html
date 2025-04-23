@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Histoguessr</title>
+  <style>
+        /* Set display to none for image*/
+        #image {
+            display: none;
+        }
+    </style>
+  
 </head>
 <body>
+<button onclick="show()"id="btnID">
+	Start
+</button>
 
+<img id="image" src="photos/worldmap.jpeg"/>
+<script>
+function show() {
+            document.getElementById('image')
+                .style.display = "block";
+            document.getElementById('btnID')
+                .style.display = "none";
+        }
+</script>
 </body>
 </html>
-
