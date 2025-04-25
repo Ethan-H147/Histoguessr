@@ -9,25 +9,32 @@
             display: none;
         }
     </style>
-  
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+     
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
 </head>
 <body>
 <button onclick="show()"id="btnID">
 	Start
 </button>
-
+<div id="map"></div>
 <div id="sentence"></div>
 <img id="image" src="photos/worldmap.jpeg"/>
 <script>
-
-const sentences= [];
+const events= ["Tiananmen Square","Salt March","Battle of Stalingrad"];
 
 function show() {
-            document.getElementById('image')
-                .style.display = "block";
-            document.getElementById('btnID')
-                .style.display = "none";
+            document.getElementById('image').style.display = "block";
+            document.getElementById('btnID').style.display = "none";
+            let index = Math.floor(Math.random()*length);
+            const displayedEvent = events[index];
+            document.getElementById('sentence').style.display = "block";
         }
+
 </script>
 </body>
 </html>
