@@ -8,6 +8,29 @@
         #image {
             display: none;
         }
+        body {
+			background-color: lightgreen;
+		}
+		
+		h1 {
+			color: white;
+			text-align: center;
+			font-family: "Lucida Console", "Courier New", monospace;
+		}
+		
+		button {
+			text-align: center;
+			position: relative;
+			left: 48.5%;
+			top: 20%
+			-ms-transform: translateY(-50%);
+			transform: translateY(-50%);
+			justify-content: center;
+			align-items: center;
+			height: 20px; /* Adjust as needed */
+			border: 2px solid #000; /* Optional for visualization */
+}
+        
     </style>
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -18,20 +41,23 @@
      crossorigin=""></script>
 </head>
 <body>
+	<h1>HistoGuessr</h1>
+	
 <button onclick="show()"id="btnID">
 	Start
 </button>
 <div id="map"></div>
-<div id="sentence"></div>
+<div id="sentence"><p>text</p></div>
 <img id="image" src="photos/worldmap.jpeg"/>
 <script>
-const events= ["Tiananmen Square","Salt March","Battle of Stalingrad"];
+const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
 
 function show() {
             document.getElementById('image').style.display = "block";
             document.getElementById('btnID').style.display = "none";
-            let index = Math.floor(Math.random()*length);
+            let index = Math.floor(Math.random()*events.length);
             const displayedEvent = events[index];
+            sentence.textContent = displayedEvent;
             document.getElementById('sentence').style.display = "block";
         }
 
