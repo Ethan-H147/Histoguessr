@@ -27,10 +27,10 @@
 			transform: translateY(-50%);
 			justify-content: center;
 			align-items: center;
-			height: 20px; /* Adjust as needed */
-			border: 2px solid #000; /* Optional for visualization */
-}
-        
+			height: 20px;
+			border: 2px solid #000; 
+		}
+		
     </style>
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -47,8 +47,9 @@
 	Start
 </button>
 <div id="map"></div>
-<div id="sentence"><p>text</p></div>
-<img id="image" src="photos/worldmap.jpeg"/>
+<div id="sentence"><p></p></div>
+<img id="image" src="photos/worldmap.jpeg"width="980" 
+     height="540"/>
 <script>
 const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
 
@@ -60,7 +61,30 @@ function show() {
             sentence.textContent = displayedEvent;
             document.getElementById('sentence').style.display = "block";
         }
-
 </script>
+<canvas width="980" height="540"
+            style="background-color: green">
+            
+    </canvas>
+ 
+    <script type="text/javascript">
+        function getMousePosition(canvas, event) {
+            let rect = canvas.getBoundingClientRect();
+            let x = event.clientX - rect.left;
+            let y = event.clientY - rect.top;
+            console.log("Coordinate x: " + x,
+                "Coordinate y: " + y);
+            canvasElem.beginPath();
+			canvasElem.ellipse(x, y, 2, 3, 0, 0, Math.PI * 2);
+			canvasElem.fill();
+        }
+ 
+        let canvasElem = document.querySelector("canvas");
+ 
+        canvasElem.addEventListener("mousedown", function (e) {
+            getMousePosition(canvasElem, e);
+            
+        }); 
+    </script>
 </body>
 </html>
