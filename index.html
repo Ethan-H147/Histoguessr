@@ -22,7 +22,7 @@
 			text-align: center;
 			position: relative;
 			left: 48.5%;
-			top: 20%
+			top: 20%;
 			-ms-transform: translateY(-50%);
 			transform: translateY(-50%);
 			justify-content: center;
@@ -58,7 +58,7 @@ function show() {
             document.getElementById('btnID').style.display = "none";
             let index = Math.floor(Math.random()*events.length);
             const displayedEvent = events[index];
-            sentence.textContent = displayedEvent;
+            document.getElementById('sentence').textContent = displayedEvent;
             document.getElementById('sentence').style.display = "block";
         }
 </script>
@@ -72,14 +72,12 @@ function show() {
             let rect = canvas.getBoundingClientRect();
             let x = event.clientX - rect.left;
             let y = event.clientY - rect.top;
-            console.log("Coordinate x: " + x,
-                "Coordinate y: " + y);
-            canvasElem.beginPath();
-			canvasElem.ellipse(x, y, 2, 3, 0, 0, Math.PI * 2);
-			canvasElem.fill();
+            console.log("Coordinate x: " + x, "Coordinate y: " + y);
         }
  
         let canvasElem = document.querySelector("canvas");
+		let ctx = canvasElem.getContext("2d");
+            
  
         canvasElem.addEventListener("mousedown", function (e) {
             getMousePosition(canvasElem, e);
