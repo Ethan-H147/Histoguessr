@@ -48,17 +48,18 @@
 </button>
 <div id="map"></div>
 <div id="sentence"><p></p></div>
-<img id="image" src="photos/worldmap.jpg"width="980" height="540"/>
+<!--<img id="image" src="photos/worldmap.jpg"width="980" height="540"/>-->
 <canvas width="980" height="540"
             style="background-color: green">
             
     </canvas>
 <script>
 const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
+const image=photos/worldmap.jpg;
 
 function show() {
-
-            document.getElementById('image').style.display = "block";
+	
+            //document.getElementById('image').style.display = "block";
             document.getElementById('btnID').style.display = "none";
             let index = Math.floor(Math.random()*events.length);
             const displayedEvent = events[index];
