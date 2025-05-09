@@ -68,25 +68,23 @@ function show() {
     ctx.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
 }
 
-        function getMousePosition(canvas, event, ctx) {
-            let rect = canvas.getBoundingClientRect();
-            let x = event.clientX - rect.left;
-            let y = event.clientY - rect.top;
-            console.log("Coordinate x: " + x, "Coordinate y: " + y);
-			ctx.fillStyle = "red";
-			ctx.beginPath();
-			ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
-			ctx.fill();
-        }
+function getMousePosition(canvas, event, ctx) {
+    let rect = canvas.getBoundingClientRect();
+    let x = event.clientX - rect.left;
+    let y = event.clientY - rect.top;
+    console.log("Coordinate x: " + x, "Coordinate y: " + y);
+	ctx.fillStyle = "red";
+	ctx.beginPath();
+	ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
+	ctx.fill();
+}
  
         let canvasElem = document.querySelector("canvas");
 		let ctx = canvasElem.getContext("2d");
             
- 
-        canvasElem.addEventListener("mousedown", function (e) {
-            getMousePosition(canvasElem, e, ctx);
-            
-        }); 
+ canvasElem.addEventListener("mousedown", function (e) {
+	getMousePosition(canvasElem, e, ctx);
+	}); 
     </script>
 </body>
 </html>
