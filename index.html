@@ -55,17 +55,18 @@
     </canvas>
 <script>
 const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
-const image=photos/worldmap.jpg;
+const img = new Image();
+img.src = "photos/worldmap.jpg";
 
 function show() {
-	
-            //document.getElementById('image').style.display = "block";
-            document.getElementById('btnID').style.display = "none";
-            let index = Math.floor(Math.random()*events.length);
-            const displayedEvent = events[index];
-            document.getElementById('sentence').textContent = displayedEvent;
-            document.getElementById('sentence').style.display = "block";
-        }
+    document.getElementById('btnID').style.display = "none";
+    let index = Math.floor(Math.random()*events.length);
+    const displayedEvent = events[index];
+    document.getElementById('sentence').textContent = displayedEvent;
+    document.getElementById('sentence').style.display = "block";
+	canvasElem.style.display = "block";
+    ctx.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+}
 
         function getMousePosition(canvas, event, ctx) {
             let rect = canvas.getBoundingClientRect();
