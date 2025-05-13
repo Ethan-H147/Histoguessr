@@ -57,6 +57,7 @@
 const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
 const img = new Image();
 img.src = "photos/worldmap.jpg";
+let Guessed = false;
 
 function show() {
     document.getElementById('btnID').style.display = "none";
@@ -66,9 +67,13 @@ function show() {
     document.getElementById('sentence').style.display = "block";
 	canvasElem.style.display = "block";
     ctx.drawImage(img, 0, 0, canvasElem.width, canvasElem.height);
+	Guessed = false;
 }
 
 function getMousePosition(canvas, event, ctx) {
+	if (Guessed) {
+	return;
+	}
     let rect = canvas.getBoundingClientRect();
     let x = event.clientX - rect.left;
     let y = event.clientY - rect.top;
@@ -77,6 +82,14 @@ function getMousePosition(canvas, event, ctx) {
 	ctx.beginPath();
 	ctx.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
 	ctx.fill();
+	Guessed = true;
+	
+	let correctX = 500;
+    let correctY = 250;
+    ctx.fillStyle = "limegreen";
+    ctx.beginPath();
+    ctx.ellipse(correctX, correctY, 3, 3, 0, 0, Math.PI * 2);
+    ctx.fill();
 }
  
         let canvasElem = document.querySelector("canvas");
