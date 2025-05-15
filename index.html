@@ -55,14 +55,23 @@
     </canvas>
 <script>
 const events= ["Tiananmen Square Protest","Salt March","Battle of Stalingrad"];
+const coords = [
+  { x: 776, y: 245 },// Tiananmen Square Protest
+  { x: 660, y: 290 },// Salt March
+  { x: 578, y: 211 }// Battle of Stalingrad
+];
+
 const img = new Image();
 img.src = "photos/worldmap.jpg";
 let Guessed = false;
+let Coordinates = { x: 0, y: 0 };
+
 
 function show() {
     document.getElementById('btnID').style.display = "none";
     let index = Math.floor(Math.random()*events.length);
     const displayedEvent = events[index];
+	Coordinates = coords[index];
     document.getElementById('sentence').textContent = displayedEvent;
     document.getElementById('sentence').style.display = "block";
 	canvasElem.style.display = "block";
@@ -84,8 +93,9 @@ function getMousePosition(canvas, event, ctx) {
 	ctx.fill();
 	Guessed = true;
 	
-	let correctX = 500;
-    let correctY = 250;
+	let correctX = Coordinates.x;
+	let correctY = Coordinates.y;
+
     ctx.fillStyle = "limegreen";
     ctx.beginPath();
     ctx.ellipse(correctX, correctY, 3, 3, 0, 0, Math.PI * 2);
